@@ -14,24 +14,22 @@
 // alert("あなたの選んだ手は" + user_hand + "です");
 
 // じゃんけんの関数
-
 let user_hand = prompt("じゃんけんの手をグーチョキパーから選んでください")
+while ((user_hand != "グー") && (user_hand != "チョキ") && (user_hand != "パー") && (user_hand != null)){
+  alert('グー・チョキ・パーのいずれかを入力して下さい');
+  user_hand = prompt("じゃんけんの手をグーチョキパーから選んでください")
+}
+
 let js_hand = getJShand();
 let judge = winLose(user_hand, js_hand);
-alert(handCheck(user_hand));
 
-function handCheck(hand){
-  let result;
-  if(hand == null){
-    result = "またチャレンジしてね";
-  }else if(user_hand != "グー" || user_hand != "チョキ" || user_hand != "パー"){
-    result = "グーチョキパーのいずれかを入力してください。";
-    user_hand = prompt("じゃんけんの手をグーチョキパーから選んでください")
-  }else{
-    result = "あなたの選ん手は" + user_hand + "です。\nJavaScriptの選んだ手は" + js_hand + "です。結果は" + judge + "です";
-  }
-  return result
+if(user_hand==null){
+  alert("またチャレンジしてね");
+}else{
+  alert("あなたの選ん手は" + user_hand + "です。\nJavaScriptの選んだ手は" + js_hand + "です。結果は" + judge + "です");
 }
+
+
 
 function getJShand(){
   let js_hand_num = Math.floor(Math.random()*3);
